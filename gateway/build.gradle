@@ -1,4 +1,8 @@
 buildscript {
+	repositories {
+		mavenCentral()
+		mavenLocal()
+	}
 	ext {
 		springBootVersion = '2.2.6.RELEASE'
 	}
@@ -12,12 +16,10 @@ buildscript {
 }
 
 plugins {
-	id 'org.springframework.boot' version '2.4.3'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'groovy'
 }
 
-apply plugin: 'java'
+apply plugin: 'groovy'
 apply plugin: 'org.springframework.boot'
 
 group = 'com.example'
@@ -29,14 +31,10 @@ repositories {
 	mavenCentral()
 }
 
-ext {
-	set('springCloudVersion', "2020.0.1")
-}
-
 dependencies {
 	implementation 'org.codehaus.groovy:groovy'
 	implementation 'org.springframework.cloud:spring-cloud-starter'
-	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix'
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix:2.2.10.RELEASE'
 	implementation 'org.springframework.cloud:spring-cloud-starter-consul-config'
 	implementation 'org.springframework.cloud:spring-cloud-starter-consul-discovery'
 	implementation 'org.springframework.cloud:spring-cloud-starter-gateway'
